@@ -1,6 +1,7 @@
 import seriesAPI from "../../data/series.js";
 import CardComponent from "./CardComponent.js";
 import Component from "./Component.js";
+import SeriesContainerComponent from "./SeriesContainerComponent.js";
 
 export default class PageComponent extends Component {
   series = seriesAPI;
@@ -17,25 +18,7 @@ export default class PageComponent extends Component {
         <h1 class="main-title">My Series</h1>
       </header>
       <main class="main">
-
         <section class="series">
-
-          <section class="series-pending">
-            <h3 class="subsection-title">Pending series</h3>
-            <p class="info">You have 4 series pending to watch</p>
-            <!--<p class="info">Congrats! You've watched all your series</p>-->
-            <ul class="series-list">
-            </ul>
-          </section>
-
-          <section class="series-watched">
-            <h3 class="subsection-title">Watched series</h3>
-            <p class="info">You have watched 4 series</p>
-            <!--<p class="info">You already have not watched any serie</p>-->
-            <ul class="series-list series-list--watched">
-            </ul>
-          </section>
-
         </section>
       </main>
     `;
@@ -47,6 +30,20 @@ export default class PageComponent extends Component {
   renderSeriesContainer() {
     const seriesSection = this.element.querySelector(".series");
     seriesSection.innerHTML = `<h2 class="section-title">Series list</h2>`;
+
+    new SeriesContainerComponent(
+      seriesSection,
+      "series-pending",
+      this.series,
+      "Pending"
+    );
+    new SeriesContainerComponent(
+      seriesSection,
+      "series-watched",
+      this.series,
+      "Watched",
+      "series-list--watched"
+    );
   }
 
   renderSeriesList() {
