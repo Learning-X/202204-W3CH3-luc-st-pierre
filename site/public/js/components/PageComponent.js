@@ -26,6 +26,7 @@ export default class PageComponent extends Component {
             <ul class="series-list">
             </ul>
           </section>
+
           <section class="series-watched">
             <h3 class="subsection-title">Watched series</h3>
             <p class="info">You have watched 4 series</p>
@@ -37,10 +38,10 @@ export default class PageComponent extends Component {
       </main>
     `;
 
-    this.generateSeriesList();
+    this.renderSeriesList();
   }
 
-  generateSeriesList() {
+  renderSeriesList() {
     const seriesList = this.element.querySelector(
       ".series-pending .series-list"
     );
