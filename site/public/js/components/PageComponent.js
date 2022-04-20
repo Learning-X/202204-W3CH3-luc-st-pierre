@@ -1,4 +1,5 @@
 import seriesAPI from "../../data/series.js";
+import CardComponent from "./CardComponent.js";
 import Component from "./Component.js";
 
 export default class PageComponent extends Component {
@@ -35,12 +36,16 @@ export default class PageComponent extends Component {
         </section>
       </main>
     `;
+
     this.generateSeriesList();
   }
 
   generateSeriesList() {
+    const seriesList = this.element.querySelector(
+      ".series-pending .series-list"
+    );
     this.series.forEach((serie) => {
-      // console.log(serie);
+      new CardComponent(seriesList, "li", serie);
     });
   }
 }
