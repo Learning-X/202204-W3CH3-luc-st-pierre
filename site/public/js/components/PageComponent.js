@@ -44,8 +44,14 @@ export default class PageComponent extends Component {
     const seriesList = this.element.querySelector(
       ".series-pending .series-list"
     );
+
+    const seriesListWatched = this.element.querySelector(
+      ".series-watched .series-list--watched"
+    );
+
     this.series.forEach((serie) => {
-      new CardComponent(seriesList, "li", serie);
+      const list = serie.watched ? seriesListWatched : seriesList;
+      new CardComponent(list, "li", serie);
     });
   }
 }
