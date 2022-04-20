@@ -18,5 +18,15 @@
       { "exceptAfterSingleLine": true }
     ],
     "import/extensions": "off"
+  },
+  "babel": {
+    "env": {
+      "test": {
+        "plugins": ["@babel/plugin-transform-modules-commonjs"]
+      }
+    }
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   }
 }
