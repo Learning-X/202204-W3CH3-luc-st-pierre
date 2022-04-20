@@ -1,5 +1,5 @@
 import seriesAPI from "../../data/series.js";
-import Component from "./Component";
+import Component from "./Component.js";
 
 export default class PageComponent extends Component {
   series = seriesAPI;
