@@ -29,20 +29,20 @@ export default class CardComponent extends Component {
 
     this.renderRatingStars();
   }
-
-  addListeners(addStarOnClick) {
+  addListeners(addStarsClick) {
     const liStars = this.element.querySelectorAll("li");
+    // console.log(liStars);
     liStars.forEach((li) => {
       li.addEventListener("click", () => {
-        const serieIndex = this.series.findIndex((serie) => {
-          serie.id === this.serie.id;
-        });
-        console.log(serieIndex);
-        addStarOnClick(serieIndex);
+        const serieIndex = this.series.findIndex(
+          (serie) => serie.id === this.serie.id
+        );
+
+        // console.log("click", serieIndex);
+        addStarsClick(serieIndex);
       });
     });
   }
-
   renderRatingStars() {
     const ratingContainer = this.element.querySelector("ul");
     const { score } = this.serie;
