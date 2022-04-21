@@ -24,22 +24,34 @@ export default class CardComponent extends Component {
         </ul>
         <i class="fas fa-times-circle icon--delete"></i>
     `;
-    this.renderRatingContainer();
+    // this.renderRatingContainer();
     this.renderRatingStars();
   }
 
-  renderRatingContainer() {
-    const ratingContainer = this.element.querySelector("ul");
-    new RatingComponent(ratingContainer, "li", this.serie);
-  }
+  // renderRatingContainer() {
+  //   const ratingContainer = this.element.querySelector("ul");
+  //   new RatingComponent(ratingContainer, "li", this.serie);
+  // }
 
   renderRatingStars() {
-    const startContainer = this.element.querySelector(".score__star");
+    const ratingContainer = this.element.querySelector("ul");
     const { score } = this.serie;
 
-    // for (let index = 1; index < 5; index++) {
+    for (let i = 1; i <= 5; i++) {
+      let classFontAwesome;
 
-    // }
+      if (this.serie.watched) {
+        i <= score ? (classFontAwesome = "fas") : (classFontAwesome = "far");
+      } else {
+        classFontAwesome = "far";
+      }
+
+      ratingContainer.innerHTML += `
+          <li class="score__star">
+            <i class="icon--score ${classFontAwesome} fa-star" title="${i}/5"></i>
+          </li>
+      `;
+    }
 
     // console.log(startContainer);
   }
