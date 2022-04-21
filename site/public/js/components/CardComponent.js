@@ -1,5 +1,4 @@
 import Component from "./Component.js";
-import RatingComponent from "./RatingComponent.js";
 
 export default class CardComponent extends Component {
   serie;
