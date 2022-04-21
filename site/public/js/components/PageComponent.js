@@ -3,10 +3,10 @@ import Component from "./Component.js";
 import SeriesContainerComponent from "./SeriesContainerComponent.js";
 
 export default class PageComponent extends Component {
-  constructor(parentElement, series) {
+  constructor(parentElement, seriesAPI) {
     super(parentElement, "container");
 
-    this.series = series;
+    this.series = seriesAPI;
     this.generateHTML();
   }
 
@@ -22,7 +22,6 @@ export default class PageComponent extends Component {
     `;
 
     this.renderSeriesContainer();
-    this.renderSeriesList();
   }
 
   renderSeriesContainer() {
@@ -43,6 +42,7 @@ export default class PageComponent extends Component {
       "Watched",
       "series-list--watched"
     );
+    this.renderSeriesList();
   }
 
   renderSeriesList() {
@@ -56,7 +56,21 @@ export default class PageComponent extends Component {
 
     this.series.forEach((serie) => {
       const list = serie.watched ? seriesListWatched : seriesList;
-      return new CardComponent(list, "li", serie);
+
+      const addStarOnClick = (star) => {
+        this.series = this.series.map((seriesAPI) => {
+          return seriesAPI.id === serie.id
+            ? {
+                ...seriesAPI,
+                watched: true,
+                score: star + 1,
+              }
+            : seriesAPI;
+        });
+        this.renderSeriesContainer();
+      };
+
+      return new CardComponent(list, "li", serie, this.series, addStarOnClick);
     });
   }
 }

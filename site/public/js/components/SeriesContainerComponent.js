@@ -3,7 +3,7 @@ import Component from "./Component.js";
 export default class SeriesContainerComponent extends Component {
   state = {};
 
-  constructor(parentElement, className, series, status, watched) {
+  constructor(parentElement, className, series, status, watched = "") {
     super(parentElement, className, "section");
 
     this.state.status = status;

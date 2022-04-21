@@ -3,11 +3,14 @@ import Component from "./Component.js";
 export default class CardComponent extends Component {
   serie;
 
-  constructor(parentElement, htmlTag, serie) {
+  constructor(parentElement, htmlTag, serie, series, addStarOnClick) {
     super(parentElement, "serie", htmlTag);
 
     this.serie = serie;
+    this.series = series;
+
     this.generateHTML();
+    this.addListeners(addStarOnClick);
   }
 
   generateHTML() {
@@ -26,7 +29,20 @@ export default class CardComponent extends Component {
 
     this.renderRatingStars();
   }
+  addListeners(addStarsClick) {
+    const liStars = this.element.querySelectorAll("li");
+    // console.log(liStars);
+    liStars.forEach((li) => {
+      li.addEventListener("click", () => {
+        const serieIndex = this.series.findIndex(
+          (serie) => serie.id === this.serie.id
+        );
 
+        // console.log("click", serieIndex);
+        addStarsClick(serieIndex);
+      });
+    });
+  }
   renderRatingStars() {
     const ratingContainer = this.element.querySelector("ul");
     const { score } = this.serie;
