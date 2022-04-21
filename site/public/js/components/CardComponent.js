@@ -31,8 +31,6 @@ export default class CardComponent extends Component {
   renderRatingReviews() {
     const ratingContainer = this.element.querySelector("ul");
     const score = this.serie.score;
-    new RatingComponent(ratingContainer, "li");
-
-    // need to continue, closing the night!
+    return new RatingComponent(ratingContainer, "li");
   }
 }

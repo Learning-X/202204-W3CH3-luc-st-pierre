@@ -57,7 +57,7 @@ export default class PageComponent extends Component {
 
     this.series.forEach((serie) => {
       const list = serie.watched ? seriesListWatched : seriesList;
-      new CardComponent(list, "li", serie);
+      return new CardComponent(list, "li", serie);
     });
   }
 }
