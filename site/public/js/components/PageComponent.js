@@ -31,13 +31,14 @@ export default class PageComponent extends Component {
     const seriesSection = this.element.querySelector(".series");
     seriesSection.innerHTML = `<h2 class="section-title">Series list</h2>`;
 
-    const componentSeriesPending = new SeriesContainerComponent(
+    new SeriesContainerComponent(
       seriesSection,
       "series-pending",
       this.series,
       "Pending"
     );
-    const componentSeriesWatched = new SeriesContainerComponent(
+
+    new SeriesContainerComponent(
       seriesSection,
       "series-watched",
       this.series,

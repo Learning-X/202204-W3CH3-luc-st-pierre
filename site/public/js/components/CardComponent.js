@@ -21,16 +21,26 @@ export default class CardComponent extends Component {
         <h4 class="serie__title">${this.serie.name}</h4>
         <p class="serie__info">${this.serie.creator} ${this.serie.year}</p>
         <ul class="score">
-        
         </ul>
         <i class="fas fa-times-circle icon--delete"></i>
     `;
-    this.renderRatingReviews();
+    this.renderRatingContainer();
+    this.renderRatingStars();
   }
 
-  renderRatingReviews() {
+  renderRatingContainer() {
     const ratingContainer = this.element.querySelector("ul");
-    const score = this.serie.score;
-    return new RatingComponent(ratingContainer, "li");
+    new RatingComponent(ratingContainer, "li", this.serie);
+  }
+
+  renderRatingStars() {
+    const startContainer = this.element.querySelector(".score__star");
+    const { score } = this.serie;
+
+    for (let index = 1; index < 5; index++) {
+      const element = array[index];
+    }
+
+    // console.log(startContainer);
   }
 }
