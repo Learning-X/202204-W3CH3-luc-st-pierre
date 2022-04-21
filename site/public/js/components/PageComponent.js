@@ -1,14 +1,12 @@
-import seriesAPI from "../../data/series.js";
 import CardComponent from "./CardComponent.js";
 import Component from "./Component.js";
 import SeriesContainerComponent from "./SeriesContainerComponent.js";
 
 export default class PageComponent extends Component {
-  series = seriesAPI;
-
-  constructor(parentElement) {
+  constructor(parentElement, series) {
     super(parentElement, "container");
 
+    this.series = series;
     this.generateHTML();
   }
 

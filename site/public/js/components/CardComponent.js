@@ -37,9 +37,9 @@ export default class CardComponent extends Component {
     const startContainer = this.element.querySelector(".score__star");
     const { score } = this.serie;
 
-    for (let index = 1; index < 5; index++) {
-      const element = array[index];
-    }
+    // for (let index = 1; index < 5; index++) {
+
+    // }
 
     // console.log(startContainer);
   }
