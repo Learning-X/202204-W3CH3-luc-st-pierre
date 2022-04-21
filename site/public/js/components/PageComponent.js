@@ -70,7 +70,19 @@ export default class PageComponent extends Component {
         this.renderSeriesContainer();
       };
 
-      return new CardComponent(list, "li", serie, this.series, addStarOnClick);
+      const removeSerieOnClick = () => {
+        this.series = this.series.filter(({ id }) => id !== serie.id);
+        this.renderSeriesContainer();
+      };
+
+      return new CardComponent(
+        list,
+        "li",
+        serie,
+        this.series,
+        addStarOnClick,
+        removeSerieOnClick
+      );
     });
   }
 }
