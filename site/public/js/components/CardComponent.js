@@ -6,8 +6,9 @@ export default class CardComponent extends Component {
   constructor(parentElement, htmlTag, serie, series, addStarOnClick) {
     super(parentElement, "serie", htmlTag);
 
-    this.series = series;
     this.serie = serie;
+    this.series = series;
+
     this.generateHTML();
     this.addListeners(addStarOnClick);
   }
@@ -33,7 +34,11 @@ export default class CardComponent extends Component {
     const liStars = this.element.querySelectorAll("li");
     liStars.forEach((li) => {
       li.addEventListener("click", () => {
-        // console.log("CLICK");
+        const serieIndex = this.series.findIndex((serie) => {
+          serie.id === this.serie.id;
+        });
+        console.log(serieIndex);
+        addStarOnClick(serieIndex);
       });
     });
   }
