@@ -3,11 +3,13 @@ import Component from "./Component.js";
 export default class CardComponent extends Component {
   serie;
 
-  constructor(parentElement, htmlTag, serie) {
+  constructor(parentElement, htmlTag, serie, series, addStarOnClick) {
     super(parentElement, "serie", htmlTag);
 
+    this.series = series;
     this.serie = serie;
     this.generateHTML();
+    this.addListeners(addStarOnClick);
   }
 
   generateHTML() {
@@ -25,6 +27,15 @@ export default class CardComponent extends Component {
     `;
 
     this.renderRatingStars();
+  }
+
+  addListeners(addStarOnClick) {
+    const liStars = this.element.querySelectorAll("li");
+    liStars.forEach((li) => {
+      li.addEventListener("click", () => {
+        // console.log("CLICK");
+      });
+    });
   }
 
   renderRatingStars() {
