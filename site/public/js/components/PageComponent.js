@@ -7,7 +7,7 @@ export default class PageComponent extends Component {
   series = seriesAPI;
 
   constructor(parentElement) {
-    super(parentElement, "conatainer");
+    super(parentElement, "container");
 
     this.generateHTML();
   }
