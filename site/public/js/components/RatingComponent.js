@@ -1,3 +1,5 @@
+import Component from "./Component.js";
+
 export default class RatingComponent extends Component {
   constructor(parentElement, serie) {
     super(parentElement, "score", "ul");
