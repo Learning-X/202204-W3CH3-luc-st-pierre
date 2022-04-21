@@ -24,14 +24,9 @@ export default class CardComponent extends Component {
         </ul>
         <i class="fas fa-times-circle icon--delete"></i>
     `;
-    // this.renderRatingContainer();
+
     this.renderRatingStars();
   }
-
-  // renderRatingContainer() {
-  //   const ratingContainer = this.element.querySelector("ul");
-  //   new RatingComponent(ratingContainer, "li", this.serie);
-  // }
 
   renderRatingStars() {
     const ratingContainer = this.element.querySelector("ul");
@@ -52,7 +47,5 @@ export default class CardComponent extends Component {
           </li>
       `;
     }
-
-    // console.log(startContainer);
   }
 }
